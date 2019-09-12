@@ -17,42 +17,84 @@ class _sensorState extends State<sensor> {
 
   @override
   Widget build(BuildContext context) {
+    var cropName="Maize";
     return Scaffold(
+      backgroundColor: Colors.teal,
       body:
       Container(
-//        width: MediaQuery
-//            .of(context)
-//            .size
-//            .width,
-//        height: MediaQuery
-//            .of(context)
-//            .size
-//            .height,
-//        decoration: BoxDecoration(
-//            image: DecorationImage(
-//                image: AssetImage("images/umbrella.png"),
-//                fit: BoxFit.cover)),
-        child: Stack(
+        child: Column(
           children: <Widget>[
-            Container(
-              alignment: Alignment.topRight,
-              margin: EdgeInsets.fromLTRB(0.0, 10.0, 15.0, 0.0),
-              child: Text(
-                "${finalCity == null ? util.defaultCity : finalCity}",
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.black),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Container(
+                constraints: BoxConstraints(
+//                    maxHeight: 300.0,
+                    maxWidth: 1500.0,
+                    minWidth: 1500.0,
+//                    minHeight: 50.0
+                ),
+
+//                color: Colors.redAccent,
+                alignment: Alignment.topCenter,
+                child: Container(
+                  color: Colors.grey,
+                  constraints: BoxConstraints(
+//                    maxHeight: 300.0,
+                    maxWidth: 1500.0,
+                    minWidth: 1500.0,
+//                    minHeight: 50.0
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: Container(
+                        alignment: Alignment.center,child: Text("Crop Name: $cropName",style:
+                    TextStyle(fontSize: 30.0,color: Colors.black) ,)),
+                  ),
+                ),
               ),
             ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(130.0, 130.0, 0.0, 15.0),
-              child: Image.asset("images/light_rain.png"),
-            ),
+            Padding(
+              padding: const EdgeInsets.all(14.0),
+              child: Container(
+
+                constraints: BoxConstraints(
+//                    maxHeight: 100.0,
+                  maxWidth: 1500.0,
+                  minWidth: 510.0,
+//                    minHeight: 50.0
+                ),
+                color: Colors.greenAccent.shade200 ,
+//                alignment: Alignment.topLeft,
+//              margin: EdgeInsets.fromLTRB(100.0, 100.0, 15.0, 100.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(13.0),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Your Location: ${finalCity == null ? util.defaultCity : finalCity}",style: TextStyle(fontSize: 30.0,color: Colors.white)
+              ),
+                  ),
+                ),
+            ),),
             updateWeather(
                 "${finalCity == null ? util.defaultCity : finalCity}"
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(0.0, 200, 0.0, 0.0),
+              child: FlatButton(
+                color:Colors.greenAccent.shade200 ,
+                child: Text(
+                    "Get Analysis of Irrigation",style: TextStyle(fontSize: 30.0,color: Colors.white)
+                ),
+                onPressed: ()=>print("hi"),
+              ),
             )
+//            Container(
+//              alignment: Alignment.center,
+//              margin: EdgeInsets.fromLTRB(130.0, 130.0, 0.0, 15.0),
+//              child: Image.asset("images/light_rain.png"),
+//            ),
+
           ],
         ),
       ),
@@ -75,25 +117,72 @@ class _sensorState extends State<sensor> {
           if (snapshot.hasData) {
             Map content = snapshot.data;
             return new Container(
-              margin: EdgeInsets.fromLTRB(50.0, 280.0, 0.0, 15.0),
-              child: Column(
+//              margin: EdgeInsets.fromLTRB(50.0, 200.0, 0.0, 15.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  ListTile(
-                    title: Text(
-                      content['main']['temp'].toString() + " °C\n",
-                      style: TextStyle(
-                          fontSize: 40.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300),
+                  Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Container(
+
+//                      constraints: BoxConstraints(
+////                    maxHeight: 100.0,
+//                        maxWidth: 1500.0,
+//                        minWidth: 510.0,
+////                    minHeight: 50.0
+//                      ),
+                      color: Colors.greenAccent.shade200 ,
+//                alignment: Alignment.topLeft,
+//              margin: EdgeInsets.fromLTRB(100.0, 100.0, 15.0, 100.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(13.0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text("TEMPERATURE\n\n"+
+                            content['main']['temp'].toString() + " °C\n",
+                            style: TextStyle(fontSize: 20.0,color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),),
+                  Padding(
+                    padding: const EdgeInsets.all(14.0),
+                    child: Container(
+
+//                      constraints: BoxConstraints(
+////                    maxHeight: 100.0,
+//                        maxWidth: 1500.0,
+//                        minWidth: 510.0,
+////                    minHeight: 50.0
+//                      ),
+                      color: Colors.greenAccent.shade200 ,
+//                alignment: Alignment.topLeft,
+//              margin: EdgeInsets.fromLTRB(100.0, 100.0, 15.0, 100.0),
+                      child: Padding(
+                        padding: const EdgeInsets.all(13.0),
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: Text(
+                            "HUMIDITY\n\n  " +
+                                content['main']['humidity'].toString() +
+                                " °C\n",
+                            style: TextStyle(fontSize: 20.0,color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.redAccent,
+                      child: Row(
+
+                        children: <Widget>[
+
+                        ],
+                      ),
                     ),
-                    subtitle: Text(
-                      "Humidity:" +
-                          content['main']['humidity'].toString() +
-                          " °C\n",
-                      style: TextStyle(color: Colors.black, fontSize: 18.0),
-                    ),
-                  ),
+                  )
                 ],
               ),
             );

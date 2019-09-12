@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smartfarmland/ui/profile.dart';
 import 'package:smartfarmland/ui/sensor.dart';
+import 'package:smartfarmland/utils/sign_in.dart';
+
+import '../main.dart';
 
 
 class DrawerItem {
@@ -31,14 +35,15 @@ class _SmartfarmState extends State<Smartfarm> {
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return Text("Profile");
+        return Profile();
       case 1:
         return sensor();
       case 2:
         return Text("Irrigation Control");
       case 3:
 
-        return Text("signout");
+        signOutGoogle();
+        return Signin();
       default:
         return new Text("Error");
     }
