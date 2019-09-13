@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smartfarmland/ui/profile.dart';
 import 'package:smartfarmland/ui/sensor.dart';
+import 'package:smartfarmland/ui/sensor1.dart';
 import 'package:smartfarmland/utils/sign_in.dart';
 
 import '../main.dart';

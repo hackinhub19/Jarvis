@@ -10,7 +10,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       child:Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -21,8 +21,8 @@ class _ProfileState extends State<Profile> {
               backgroundImage: !(imageUrl==null)?NetworkImage(imageUrl):AssetImage("images/google_logo.png"),
             ),
           ),
-          Text("$name"),
-          Text("$email")
+          Text("Hemachandran V K"),
+          Text("hemachandran1200@gmail.com")
         ],
       )
     );

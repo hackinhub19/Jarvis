@@ -19,20 +19,22 @@ class _sensorState extends State<sensor> {
   Widget build(BuildContext context) {
     var cropName="Maize";
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.white,
       body:
       Container(
         child: Column(
           children: <Widget>[
+
             Padding(
               padding: const EdgeInsets.all(14.0),
-              child: Container(
-                constraints: BoxConstraints(
-//                    maxHeight: 300.0,
-                    maxWidth: 1500.0,
-                    minWidth: 1500.0,
-//                    minHeight: 50.0
-                ),
+              child:
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10.0),
+                    ),
+                  ),
 
 //                color: Colors.redAccent,
                 alignment: Alignment.topCenter,
@@ -125,12 +127,6 @@ class _sensorState extends State<sensor> {
                     padding: const EdgeInsets.all(14.0),
                     child: Container(
 
-//                      constraints: BoxConstraints(
-////                    maxHeight: 100.0,
-//                        maxWidth: 1500.0,
-//                        minWidth: 510.0,
-////                    minHeight: 50.0
-//                      ),
                       color: Colors.greenAccent.shade200 ,
 //                alignment: Alignment.topLeft,
 //              margin: EdgeInsets.fromLTRB(100.0, 100.0, 15.0, 100.0),
@@ -191,7 +187,3 @@ class _sensorState extends State<sensor> {
         });
   }
 }
-
-
-
-
